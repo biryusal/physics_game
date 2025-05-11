@@ -1,10 +1,9 @@
 import numpy as np
-from numpy.typing import NDArray
-from typing import TypedDict, Literal
-from utils import set_interval
-from item import Item
+from src.utils import set_interval
+from src.item import Item
+from src.types import Vector3D
+from typing import TypedDict
 
-Vector3D = NDArray[Literal[3], np.floating]
 
 class TypedItem(TypedDict):
     instance: Item
@@ -64,3 +63,5 @@ class World:
 
             item["velocity"] = new_velocity
             item_instance.change_position(new_position)
+
+            print(f"New position for item {item_instance.name}:", item_instance.cords)
